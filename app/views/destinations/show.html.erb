@@ -1,0 +1,17 @@
+
+
+
+<h2> <%= @destination.name%> </h2>
+
+<h3> 5 recent posts: </h3>
+<% @destination.posts.reverse.each do |post|  %> </li>
+<li><%= post.title%></li>
+<%end%>
+<br>
+<% if @destination.featured_post.nil? %>
+<h4>This destination haven't had any posts yet</h4>
+<%else%>
+<h3> <%= link_to "The featured post", post_path(@destination.featured_post) %></h3>
+<%end%>
+
+<h3> Average age of bloggers: <%= @destination.average_age_bloggers %></h3>

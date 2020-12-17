@@ -1,0 +1,17 @@
+
+
+
+<h2> <%= @blogger.name%> </h2>
+
+<li> Total likes: <%= @blogger.posts.sum {|post| post.likes} %> </li>
+
+<% if @blogger.featured_post.nil? %>
+<h4>This blogger haven't writtten any posts yet</h4>
+<%else%>
+<h4><%= link_to "The featured post", post_path(@blogger.featured_post) %></h4>
+<%end%>
+
+<h4> Top 5 most writtten destinations </h4>
+<% @blogger.most_posts_destinations.each do |destination| %>
+<li><%= destination.name%> : <%= destination.id%> </li>
+<%end%>

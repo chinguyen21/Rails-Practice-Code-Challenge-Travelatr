@@ -1,0 +1,15 @@
+
+
+
+<h2> <%= @post.title%> </h2>
+<h6> <%= @post.content%></h6>
+
+<li> Author: <%= link_to @post.blogger.name, blogger_path(@post.blogger)%></li>
+<li> Destination: <%= link_to @post.destination.name, destination_path(@post.destination)%></li>
+<li> Likes: <%= @post.likes%></li>
+
+<h4><%= form_with url: update_likes_path, method: :post do |f| %>
+<%= f.submit "Like"%>
+<%end%>
+
+<h4><%= button_to "Like", update_likes_path%></h4>

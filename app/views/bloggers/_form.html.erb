@@ -1,0 +1,25 @@
+<h5>
+<%= form_for(@blogger) do |f| %>
+  <% if @blogger.errors.any? %>
+    <ul>
+    <% @blogger.errors.full_messages.each do |message| %>
+      <h3 id="error"><%= message %></h3>
+    <% end %>
+    </ul>
+  <% end %>
+
+
+  <label id="label">Name</label><br>
+  <%= f.text_field :name %><br><br>
+
+  <label id="label">Bio </label><br>
+  <%= f.text_area :bio %><br><br>
+
+  <label id="label">Age</label><br>
+  <%= f.number_field :age %><br><br>
+
+
+  <%= f.submit %>
+<% end %>
+
+</h5>
